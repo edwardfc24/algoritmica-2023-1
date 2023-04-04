@@ -1,3 +1,4 @@
+from prim import Prim
 from kruskal import Kruskal
 
 nodes = ['a','b','c','d','e','f', 'g']
@@ -17,7 +18,9 @@ edges = [
 
 
 if __name__ == '__main__':
-    kruskal = Kruskal()
-    met = kruskal.apply_kruskal(nodes, edges)
+    prim = Prim()
+    met =prim.aplicarPrim(nodes, edges)
     print(met)
-
+    kruskal = Kruskal()
+    met2 = kruskal.apply_kruskal(nodes, edges)
+    print(met2)
