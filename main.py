@@ -1,6 +1,9 @@
-from kruskal import Kruskal
+from algorithms import Algorithms
 
-nodes = ['a','b','c','d','e','f', 'g']
+kruskal = Algorithms()
+prim = Algorithms()
+
+nodes = ['a','b','c','d','e','f','g']
 edges = [
     ('a', 'b', 7),
     ('b', 'c', 8),
@@ -15,9 +18,10 @@ edges = [
     ('e', 'f', 8)
 ]
 
+mst_k = kruskal.kruskal(nodes, edges)
+print(mst_k)
 
-if __name__ == '__main__':
-    kruskal = Kruskal()
-    met = kruskal.apply_kruskal(nodes, edges)
-    print(met)
+mst_p = prim.prim(nodes, edges)
+print(mst_p)
+
 
