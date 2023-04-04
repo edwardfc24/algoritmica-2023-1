@@ -55,3 +55,31 @@ class Kruskal:
                 self.met.append(edge)
         return self.met
         
+    def apply_prim(self, nodes, edges):
+        # Inicializar variables
+        visited = set()
+        met = []
+        start_node = nodes[0]
+        visited.add(start_node)
+        edges_list = []
+        for edge in edges:
+            if edge[0] == start_node or edge[1] == start_node:
+                edges_list.append(edge)
+        while edges_list:
+            # Arista de menor costo
+            edge = min(edges_list, key=lambda x: x[2])
+            edges_list.remove(edge)
+            if edge[0] in visited and edge[1] in visited:
+                continue
+            met.append(edge)
+            if edge[0] not in visited:
+                visited.add(edge[0])
+                for ne in edges:
+                    if ne[0] == edge[0] or ne[1] == edge[0]:
+                        edges_list.append(ne)
+            if edge[1] not in visited:
+                visited.add(edge[1])
+                for ne in edges:
+                    if ne[0] == edge[1] or ne[1] == edge[1]:
+                        edges_list.append(ne)
+        return met
