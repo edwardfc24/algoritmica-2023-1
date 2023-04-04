@@ -14,13 +14,7 @@ edges = [
     ('b', 'e', 7),
     ('e', 'f', 4)
 ]
-graph = {
-        'A': {'B': 2, 'C': 3},
-        'B': {'A': 2, 'C': 5, 'D': 1},
-        'C': {'A': 3, 'B': 5, 'D': 4, 'E': 6},
-        'D': {'B': 1, 'C': 4, 'E': 2},
-        'E': {'C': 6, 'D': 2}
-    }
+
 def prim(graph, start):
         visited = set()
         mst = []
@@ -41,6 +35,13 @@ def prim(graph, start):
 
 if __name__ == '__main__':
     kruskal = Kruskal()
+    graph = {
+        'A': {'B': 2, 'C': 3},
+        'B': {'A': 2, 'C': 5, 'D': 1},
+        'C': {'A': 3, 'B': 5, 'D': 4, 'E': 6},
+        'D': {'B': 1, 'C': 4, 'E': 2},
+        'E': {'C': 6, 'D': 2}
+    }
     met = kruskal.apply_kruskal(nodes, edges)
     print(met)
 
