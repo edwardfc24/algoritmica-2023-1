@@ -1,5 +1,5 @@
 import random
-from kruskal import kruskal
+from kruskal.kruskal_algorithm import Kruskal
 from prim.prim import Prim
 
 nodes = ['a','b','c','d','e','f', 'g']
@@ -17,7 +17,7 @@ edges = [
     ('e', 'f', 8)
 ]
 
-kruskal = kruskal.Kruskal()
+kruskal = Kruskal()
 prim = Prim()
 
 node = random.choice(nodes)
