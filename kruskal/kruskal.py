@@ -4,7 +4,6 @@ class Kruskal:
         self.nodos = {}
         self.niveles = {}
         self.poscionPeso = 2
-
     
     def ordenarConexiones(self, conexiones):
         return sorted(conexiones, key=lambda nodo: nodo[self.poscionPeso])
@@ -16,6 +15,7 @@ class Kruskal:
     def encontrarRaiz(self, nodo):
         if self.nodos[nodo] != nodo:
             self.nodos[nodo] = self.encontrarRaiz(self.nodos[nodo])
+        print(self.nodos)
         return self.nodos[nodo]
     
     def verificarUnion(self, origen, destino):
@@ -29,7 +29,6 @@ class Kruskal:
                 if self.niveles[origenRaiz] == self.niveles[destinoRaiz]:
                     self.niveles[destinoRaiz] += 1
 
-
     def apply_kruskal(self, nodos, conexiones):
         for node in nodos:
             self.inicializarDatos(node)
@@ -42,6 +41,7 @@ class Kruskal:
             origen, destino, peso = conexion
             if self.encontrarRaiz(origen) != self.encontrarRaiz(destino):
                 self.verificarUnion(origen, destino)
+                print(conexion)
                 self.met.append(conexion)
                 conexionesHechas = conexionesHechas + 1
             posicion = posicion+1
